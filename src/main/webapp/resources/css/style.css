@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: black;
+    box-shadow: none;
+}
+
+.__hover-item {
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.__product-item:hover .__hover-item {
+    opacity: 1;
+}
+
+.__product-item:hover > .__product-item-img img {
+    opacity: 0.5;
+    transition: 1s ease;
+    transform: scale(1.1);
+}
+
+.__product-item-img {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+
+.__product-item-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.pagination .page-item:first-child .page-link {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.pagination .page-item:last-child .page-link {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.pagination .page-link {
+    color: #000;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #000;
+    border-color: #000;
+    color: #fff;
+}
+
+.list-group >.active {
+    background-color: #777777;
+    border: #777777;
+}
+
+::-webkit-scrollbar {
+    width: 2px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #646464;
+}
+
+/*effect*/
+@keyframes headerNotifyGrowth {
+    from {
+        transform: scaleY(0);
+    }
+    to {
+        transform: scaleY(1);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0.6;
+        transform: translateY(-550px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes zoom-in-zoom-out {
+    0% {
+        transform: scale(1, 1);
+    }
+    50% {
+        transform: scale(1.1, 1.1);
+    }
+    100% {
+        transform: scale(1, 1);
+    }
+}
