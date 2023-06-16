@@ -54,6 +54,26 @@ public class ProductService implements IProductService {
     }
 
     @Override
+    public String saleOffProduct(List<Product> list, Integer percent) {
+        if (percent > 50 || percent < 0) {
+            return "Phần trăm giảm không hợp lệ!";
+        }
+        if (percent == 0) {
+            for (Product x : list) {
+                x.setDonGiaKhiGiam(BigDecimal.ZERO);
+                repository.save(x);
+            }
+            return "Đã hủy giảm giá!";
+        } else {
+            for (Product x : list) {
+                x.setDonGiaKhiGiam(BigDecimal.valueOf(x.getDonGia().doubleValue() / 100 * (100 - percent)));
+                repository.save(x);
+            }
+            return "Giảm giá thành công!";
+        }
+    }
+
+    @Override
     public Page<Product> filterProduct(String name, BigDecimal minPrice, BigDecimal maxPrice, Category category, Brand brand, String vanhXe, Pageable pageable) {
         return repository.filterProduct(name, minPrice, maxPrice, category, brand, vanhXe, pageable);
     }

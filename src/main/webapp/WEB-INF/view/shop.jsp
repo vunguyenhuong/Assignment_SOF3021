@@ -96,7 +96,13 @@
                                     </div>
                                 </div>
                                 <div class="my-3">
-                                    <strong>${product.ten}</strong>
+                                    <strong>
+                                            ${product.ten}
+                                        <c:if test="${product.donGiaKhiGiam.intValue() != 0}">
+                                            <fmt:formatNumber value="${(product.donGia.doubleValue()-product.donGiaKhiGiam.doubleValue())/product.donGia.doubleValue()*100}" var="giamGia" type="currency" currencySymbol="%"/>
+                                            <span class="badge text-bg-danger">- ${giamGia}</span>
+                                        </c:if>
+                                    </strong>
                                     <c:if test="${product.donGiaKhiGiam.intValue() == 0}">
                                         <p>${donGiaFormat} <strong class="text-danger">VNĐ</strong></p>
                                     </c:if>

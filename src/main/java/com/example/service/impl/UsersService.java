@@ -66,6 +66,9 @@ public class UsersService implements IUsersService {
 
     @Override
     public Integer updateUser(Users users) {
+        if(users.getTen().isEmpty() || users.getEmail().isEmpty() || users.getMatKhau().isEmpty()){
+            return -1;
+        }
         Users users1 = (Users) session.getAttribute("user");
         BeanUtils.copyProperties(users, users1);
         repository.save(users1);

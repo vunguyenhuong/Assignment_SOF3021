@@ -313,6 +313,12 @@
         swal('Good job!', "${successMessage}", 'success');
     </script>
 </c:if>
+
+<c:if test="${not empty errorMessage}">
+    <script>
+        swal('Oops!', "${errorMessage}", 'error');
+    </script>
+</c:if>
 <script src="/resources/js/product.js"></script>
 <script src="/resources/vendor/boostrap/boostrap.min.js"></script>
 <script src="/resources/vendor/boostrap/popper.min.js"></script>

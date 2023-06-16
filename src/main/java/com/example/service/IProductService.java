@@ -18,5 +18,7 @@ public interface IProductService {
 
     Boolean delete(Integer id);
 
+    String saleOffProduct(List<Product> list, Integer percent);
+
     Page<Product> filterProduct(String name, BigDecimal minPrice, BigDecimal maxPrice, Category category, Brand brand, String vanhXe, Pageable pageable);
 }

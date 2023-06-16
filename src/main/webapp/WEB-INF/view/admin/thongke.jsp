@@ -31,8 +31,8 @@
                     <canvas id="myChart"></canvas>
                 </div>
                 <div class="col-xl-5">
-                    <form method="get">
-                        <div class="row mb-3">
+                    <div class="row">
+                        <form method="get">
                             <div class="col-xl-3">
                                 <label class="form-label">Ngày</label>
                                 <input type="text" class="form-control rounded-0" name="day" value="${param.day}">
@@ -50,11 +50,12 @@
                                 <div>
                                     <button type="submit" class="btn btn-dark rounded-0">
                                         <i class="fas fa-filter"></i>
-                                        Lọc</button>
+                                        Lọc
+                                    </button>
                                 </div>
                             </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                     <div class="table-responsive">
                         <table class="table table-bordered table-sm text-white">
                             <thead>
@@ -93,10 +94,19 @@
                     </div>
                 </div>
                 <div class="col-xl-12">
+                    <h3>Top 10 sản phầm tồn</h3>
+                    <form action="/admin/sale-off" method="post">
+                        <div class="input-group">
+                            <input name="percent" type="number" class="form-control rounded-0" min="0" max="50"
+                                   placeholder="Nhập phần trăm giảm giá..."/>
+                            <button type="submit" class="btn btn-dark rounded-0">Thực hiện giảm giá</button>
+                        </div>
+                    </form>
                     <div class="table-responsive">
                         <table class="table table-bordered table-hover">
                             <thead>
                             <tr>
+                                <th scope="col">#</th>
                                 <th scope="col">Tên sản phẩm</th>
                                 <th scope="col">Đơn giá</th>
                                 <th scope="col">Số lượng tồn</th>
@@ -104,8 +114,9 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <c:forEach items="${pageTop10Ton.getContent()}" var="item">
+                            <c:forEach items="${pageTop10Ton.getContent()}" var="item" varStatus="i">
                                 <tr class="">
+                                    <td>${i.index+1}</td>
                                     <td>${item.ten}</td>
                                     <td>
                                         <fmt:formatNumber value="${item.donGia}" type="currency" currencySymbol="VNĐ"/>
@@ -166,7 +177,16 @@
         }
     });
 </script>
-
+<c:if test="${not empty successMessage}">
+    <script>
+        swal('Good job!', "${successMessage}", 'success');
+    </script>
+</c:if>
+<c:if test="${not empty errorMessage}">
+    <script>
+        swal('Oops!', "${errorMessage}", 'error');
+    </script>
+</c:if>
 <script src="/resources/js/product.js"></script>
 <script src="/resources/vendor/boostrap/boostrap.min.js"></script>
 <script src="/resources/vendor/boostrap/popper.min.js"></script>

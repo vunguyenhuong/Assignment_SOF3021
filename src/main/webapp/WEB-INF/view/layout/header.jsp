@@ -15,7 +15,7 @@
                         <a class="nav-link" href="/shop"><i class="fas fa-shopping-bag"></i> Shop</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/contact"><i class="fas fa-phone-volume"></i> Liên hệ</a>
+                        <a class="nav-link" href="/shop"><i class="fas fa-phone-volume"></i> Liên hệ</a>
                     </li>
                 </ul>
                 <a href="/cart" class="text-decoration-none text-muted me-2"><i class="fas fa-cart-flatbed"></i>

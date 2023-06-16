@@ -134,6 +134,8 @@ public class ProductController {
                 uploadService.delete(product.getHinhAnh(), "/resources/images/products/");
             }
             redirectAttributes.addFlashAttribute("successMessage", "Xóa thành công!");
+        }else {
+            redirectAttributes.addFlashAttribute("errorMessage", "Xóa thất bại!!");
         }
         return "redirect:/admin/product";
     }
